@@ -218,27 +218,27 @@
 <form class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-surface-container-lowest rounded-3xl shadow-sm border border-outline-variant/10">
 <div class="space-y-2">
 <label class="text-sm font-bold text-primary px-1">Nome Completo</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-nome" placeholder="Ex: João Silva" type="text"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Ex: João Silva" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-bold text-primary px-1">CPF</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-cpf" placeholder="000.000.000-00" type="text"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="000.000.000-00" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-bold text-primary px-1">Telefone / WhatsApp</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-tel" placeholder="(11) 99999-9999" type="tel"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="(11) 99999-9999" type="tel"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-bold text-primary px-1">Renda Mensal (R$)</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-renda" placeholder="Ex: 3500" type="number"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Ex: 3500" type="number"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-bold text-primary px-1">Valor Desejado (R$)</label>
-<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-valor" placeholder="R$ 5.000,00" type="number"/>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="R$ 5.000,00" type="number"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-bold text-primary px-1">Parcelas Desejadas</label>
-<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="select-parcelas">
+<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all">
 <option>12x</option>
 <option>24x</option>
 <option>36x</option>
@@ -405,27 +405,4 @@
 <p class="text-[10px] text-slate-400 uppercase tracking-widest">CRÉDITO BRASIL - INTERMEDIAÇÃO DE ATIVOS FINANCEIROS LTDA</p>
 </div>
 </footer>
-<script>
-document.getElementById('btn-processar').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    const nome = document.getElementById('input-nome').value;
-    const cpf = document.getElementById('input-cpf').value;
-    const tel = document.getElementById('input-tel').value;
-    const renda = document.getElementById('input-renda').value;
-    const valor = document.getElementById('input-valor').value;
-    const parcelas = document.getElementById('select-parcelas').value;
-
-    if(!nome || !cpf || !tel) {
-        alert('Por favor, preencha os campos obrigatórios (Nome, CPF e Telefone).');
-        return;
-    }
-
-    const message = `Olá, gostaria de fazer uma simulação de empréstimo.\n\nDados do Lead:\nNome: ${nome}\nCPF: ${cpf}\nTelefone: ${tel}\nRenda Mensal: R$ ${renda}\nValor Desejado: R$ ${valor}\nParcelas: ${parcelas}`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/5519996058578?text=${encodedMessage}`;
-    
-    window.location.href = whatsappUrl;
-});
-</script></body></html>
+</body></html>
