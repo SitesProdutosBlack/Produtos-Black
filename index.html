@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simulação de Empréstimo Pessoal Online | Crédito Brasil</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#abc7ff",
+              "on-surface": "#191c1d",
+              "background": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-tint": "#3e5e95",
+              "on-primary-fixed": "#001b3f",
+              "surface-dim": "#d9dadb",
+              "on-background": "#191c1d",
+              "primary": "#00193c",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "surface-container-high": "#e7e8e9",
+              "on-surface-variant": "#43474f",
+              "outline": "#747781",
+              "on-secondary-container": "#00732c",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#002a6f",
+              "tertiary-fixed": "#dae2ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#edeeef",
+              "outline-variant": "#c4c6d1",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#3ce36a",
+              "secondary-fixed": "#69ff87",
+              "on-secondary-fixed-variant": "#00531e",
+              "on-tertiary-fixed-variant": "#0040a1",
+              "tertiary-fixed-dim": "#b2c5ff",
+              "surface-container-highest": "#e1e3e4",
+              "primary-fixed": "#d7e2ff",
+              "tertiary": "#001744",
+              "on-primary-fixed-variant": "#24467c",
+              "inverse-primary": "#abc7ff",
+              "secondary-container": "#5cfd80",
+              "secondary": "#006e2a",
+              "primary-container": "#002d62",
+              "on-tertiary-fixed": "#001847",
+              "on-primary-container": "#7796d1",
+              "surface": "#f8f9fa",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "inverse-surface": "#2e3132",
+              "on-secondary-fixed": "#002108",
+              "surface-variant": "#e1e3e4",
+              "on-tertiary-container": "#6592ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .vault-gradient {
+        background: linear-gradient(135deg, #00193c 0%, #002d62 100%);
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl shadow-[0px_4px_20px_rgba(0,27,63,0.04)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-blue-900 dark:text-white">Crédito Brasil</span>
+<div class="hidden lg:flex gap-6">
+<a class="text-blue-900 dark:text-blue-400 border-b-2 border-blue-900 dark:border-blue-400 pb-1 font-manrope tracking-tight font-semibold transition-colors" href="#">Início</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 font-manrope tracking-tight font-semibold transition-colors" href="#como-funciona">Como funciona</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 font-manrope tracking-tight font-semibold transition-colors" href="https://wa.me/5519996058578?text=Olá,%20gostaria%20de%20fazer%20uma%20simulação%20de%20empréstimo%20sem%20compromisso.">Simular</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 font-manrope tracking-tight font-semibold transition-colors" href="#seguranca">Segurança</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 font-manrope tracking-tight font-semibold transition-colors" href="#faq">FAQ</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 font-manrope tracking-tight font-semibold transition-colors" href="#contato">Contato</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="vault-gradient text-on-primary px-6 py-2.5 rounded-xl font-bold scale-95 active:scale-90 transition-transform shadow-lg shadow-primary/20 flex items-center justify-center" href="https://wa.me/5519996058578?text=Olá,%20gostaria%20de%20fazer%20uma%20simulação%20de%20empréstimo%20sem%20compromisso.">
+                    Simular empréstimo
+                </a>
+<span class="material-symbols-outlined text-primary-container" data-icon="lock">lock</span>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden bg-surface-container-low px-8">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center w-full">
+<div class="z-10 space-y-8 py-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container/30 text-secondary border border-secondary/10 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-xs font-bold tracking-wider uppercase">Crédito Responsável</span>
+</div><div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/20 text-tertiary border border-tertiary/10 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="error_outline">error_outline</span>
+<span class="text-xs font-bold tracking-wider uppercase">Disponível para negativados*</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-headline font-extrabold tracking-tight text-primary leading-[1.1]">
+                        Simule seu empréstimo pessoal de forma <span class="text-secondary">simples e transparente</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        Compare opções e receba propostas conforme seu perfil financeiro. Sem taxas ocultas, sem burocracia excessiva.
+                    </p>
+<div class="grid sm:grid-cols-3 gap-4">
+<div class="flex items-start gap-3 p-4 bg-surface-container-lowest rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+<div>
+<h4 class="font-bold text-primary">100% Online</h4>
+<p class="text-sm text-outline">Processo ágil e digital</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface-container-lowest rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="security">security</span>
+<div>
+<h4 class="font-bold text-primary">Análise Responsável</h4>
+<p class="text-sm text-outline">Foco no seu bem-estar</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-secondary/10">
+<span class="material-symbols-outlined text-secondary" data-icon="handshake">handshake</span>
+<div>
+<h4 class="font-bold text-primary">Crédito Inclusivo</h4>
+<p class="text-sm text-outline">Opções para negativados*</p>
+</div>
+</div></div>
+<div class="flex flex-col gap-4">
+<a class="vault-gradient text-on-primary w-fit px-10 py-5 rounded-xl text-lg font-extrabold shadow-xl hover:shadow-2xl transition-all text-center" href="https://wa.me/5519996058578?text=Olá,%20gostaria%20de%20fazer%20uma%20simulação%20de%20empréstimo%20sem%20compromisso.">
+                            SIMULAR AGORA
+                        </a>
+<p class="text-xs text-outline italic flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="info">info</span>
+                            Solicitação sujeita à análise de crédito.
+                        </p>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute -inset-4 bg-primary/5 rounded-[4rem] rotate-3"></div>
+<img class="relative rounded-[3rem] shadow-2xl w-full h-[600px] object-cover border-4 border-surface-container-lowest" data-alt="high-end minimalist office with glass elements and architectural lighting, professional financial environment, sharp focus, clean blue and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnoArEeG2_8CUHF1atBLQakxrKKD_173HS30pKETwIcgSMxVVzfS-G__Ltb_ISdGB4-JMHrtwl2BGGPfZ0iuS7RFBdM1eFl3ZRNTItASufQ0T22Gq7dOWLiUGGHotSuZlNZ5EWwYXIMXkFO1YqPye6kb03rMnKVhgiCYl8Uqu5gyYCzIlrpH5MjruFJT_IV-kNRxn5gZC4zhGIPmRCVGbmpzRbERhgLfwvAYyh2hVs2Pq9e94o3E_iELBOChR8l1t7i72kTJDsNLr0"/>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl flex items-center gap-4 border border-outline-variant/10">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<div class="text-sm text-outline">Menores taxas do mercado</div>
+<div class="text-xl font-bold text-primary">A partir de 1.49% a.m.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Como Funciona -->
+<section class="py-24 px-8 bg-surface-container-lowest" id="como-funciona">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-4">Como funciona</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Nossa tecnologia conecta você às melhores oportunidades de crédito em apenas três passos fundamentais.</p>
+</div>
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+<div class="relative group text-center px-6">
+<div class="w-20 h-20 mx-auto bg-surface-container-low rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 mb-8 rotate-3 group-hover:rotate-0">
+<span class="material-symbols-outlined text-4xl" data-icon="edit_note">edit_note</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">1. Preencha a simulação</h3>
+<p class="text-on-surface-variant">Informe seus dados básicos e o valor que você precisa de forma segura.</p>
+</div>
+<div class="relative group text-center px-6">
+<div class="w-20 h-20 mx-auto bg-surface-container-low rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 mb-8 -rotate-3 group-hover:rotate-0">
+<span class="material-symbols-outlined text-4xl" data-icon="analytics">analytics</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">2. Analisamos seu perfil</h3>
+<p class="text-on-surface-variant">Nossa inteligência financeira busca as propostas que mais se adequam à sua realidade.</p>
+</div>
+<div class="relative group text-center px-6">
+<div class="w-20 h-20 mx-auto bg-surface-container-low rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 mb-8 rotate-3 group-hover:rotate-0">
+<span class="material-symbols-outlined text-4xl" data-icon="contract">contract</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">3. Receba propostas</h3>
+<p class="text-on-surface-variant">Escolha a melhor opção e receba o dinheiro diretamente na sua conta.</p>
+</div>
+</div>
+<div class="max-w-4xl mx-auto mt-20 p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/20 flex items-center gap-4 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<p>A aprovação depende da análise de crédito realizada pelas instituições financeiras parceiras. Atuamos com responsabilidade financeira total.</p>
+</div>
+</section>
+<!-- Simulador -->
+<section class="py-24 px-8 bg-surface" id="simulador">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-16">
+<div class="lg:col-span-3 space-y-8">
+<h2 class="text-4xl font-headline font-extrabold text-primary">Personalize sua simulação</h2>
+<p class="text-on-surface-variant text-lg">Empréstimo pessoal online rápido e sem letras miúdas. Comece agora!</p>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-surface-container-lowest rounded-3xl shadow-sm border border-outline-variant/10">
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1">Nome Completo</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-nome" placeholder="Ex: João Silva" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1">CPF</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-cpf" placeholder="000.000.000-00" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1">Telefone / WhatsApp</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-tel" placeholder="(11) 99999-9999" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1">Renda Mensal (R$)</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-renda" placeholder="Ex: 3500" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1">Valor Desejado (R$)</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="input-valor" placeholder="R$ 5.000,00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-primary px-1">Parcelas Desejadas</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="select-parcelas">
+<option>12x</option>
+<option>24x</option>
+<option>36x</option>
+<option>48x</option>
+<option>60x</option>
+</select>
+</div>
+<div class="md:col-span-2 mt-4">
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="mt-1 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="text-sm text-on-surface-variant leading-relaxed">
+                                    Li e aceito a <a class="text-primary font-bold underline" href="#">Política de Privacidade</a> e autorizo o tratamento dos meus dados para fins de análise de crédito em conformidade com a LGPD.
+                                </span>
+</label>
+</div>
+<a class="md:col-span-2 vault-gradient text-on-primary py-4 rounded-xl font-extrabold text-lg mt-4 shadow-lg hover:brightness-110 transition-all text-center block" href="https://wa.me/5519996058578?text=Olá,%20gostaria%20de%20fazer%20uma%20simulação%20de%20empréstimo%20sem%20compromisso.">
+                            PROCESSAR MINHA SIMULAÇÃO
+                        </a>
+</form>
+</div>
+<!-- Transparência Financeira -->
+<div class="lg:col-span-2 space-y-8">
+<div class="p-8 bg-primary rounded-[2rem] text-on-primary shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+<h3 class="text-2xl font-headline font-bold mb-8">Exemplo Ilustrativo</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-on-primary/70">Valor solicitado</span>
+<span class="text-xl font-bold">R$ 10.000,00</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-on-primary/70">Taxa mensal</span>
+<span class="text-xl font-bold text-secondary-fixed">1,59% a.m.</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-on-primary/70">CET Anual</span>
+<span class="text-xl font-bold">21,4% a.a.</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-on-primary/70">Parcelas</span>
+<span class="text-xl font-bold">24 x R$ 504,22</span>
+</div>
+<div class="pt-4 flex justify-between items-center">
+<span class="font-bold">Total a pagar</span>
+<span class="text-3xl font-black text-secondary-fixed tracking-tight">R$ 12.101,28</span>
+</div>
+</div>
+<div class="mt-10 flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="verified">verified</span>
+<p class="text-[10px] leading-tight text-on-primary/60">
+                                Transparência Total: O Custo Efetivo Total (CET) pode variar de 12% a 180% ao ano dependendo do perfil do cliente e política do parceiro.
+                            </p>
+</div>
+</div>
+<div class="p-8 bg-tertiary-container rounded-[2rem] text-on-tertiary shadow-xl" id="seguranca">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container" data-icon="gpp_good">gpp_good</span>
+<h3 class="text-xl font-bold">Segurança de Dados</h3>
+</div>
+<p class="text-sm leading-relaxed text-on-tertiary/80 mb-6">
+                            Seus dados estão protegidos com criptografia de ponta a ponta (SSL de 256 bits). Operamos em total conformidade com a LGPD, garantindo que suas informações sejam usadas exclusivamente para a finalidade de busca de crédito.
+                        </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-xs">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+                                Servidores certificados pela ISO 27001
+                            </li>
+<li class="flex items-center gap-2 text-xs">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+                                Auditorias de segurança frequentes
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-24 px-8 bg-surface-container-lowest" id="faq">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-4">Perguntas Frequentes</h2>
+<p class="text-on-surface-variant">Tudo o que você precisa saber sobre o empréstimo online.</p>
+</div>
+<div class="space-y-4">
+<details class="group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-primary">
+                            Quem pode solicitar o empréstimo?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+                            Pessoas físicas maiores de 18 anos, residentes no Brasil, que possuam conta bancária e comprovem fonte de renda ativa (CLT, Autônomo, Pensionista ou MEI).
+                        </div>
+</details>
+<details class="group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 ring-2 ring-secondary/20 bg-secondary/5">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-primary"><span>Mesmo negativado consigo solicitar? <span class="ml-2 text-[10px] bg-secondary text-on-secondary px-2 py-0.5 rounded-full uppercase">Destaque</span></span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span></summary>
+<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+                            Sim, você pode simular. Alguns de nossos parceiros possuem linhas específicas de crédito para negativados, porém a taxa de juros pode ser superior devido ao risco de crédito.
+                        </div>
+</details>
+<details class="group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-primary">
+                            Qual o tempo de análise e documentos necessários?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+                            A análise leva de 5 minutos a 24 horas. Geralmente solicitamos apenas RG/CNH, comprovante de residência e extrato bancário dos últimos 3 meses para comprovação de renda.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Textos Legais -->
+<section class="py-24 px-8 bg-surface border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+<div>
+<h3 class="text-xl font-bold text-primary mb-6">Política de Privacidade</h3>
+<div class="text-sm text-on-surface-variant leading-relaxed space-y-4 max-h-60 overflow-y-auto pr-4 no-scrollbar">
+<p>A Crédito Brasil valoriza a sua privacidade. Coletamos dados como nome, CPF e e-mail com a finalidade exclusiva de intermediar propostas de crédito junto a instituições financeiras parceiras.</p>
+<p>Seus dados são compartilhados apenas com parceiros autorizados para a realização de análise de risco de crédito. Você possui o direito de solicitar a exclusão de seus dados de nossa base a qualquer momento, conforme garantido pela LGPD.</p>
+<p>Não vendemos seus dados para terceiros para fins de marketing não autorizado. Todas as transações são criptografadas.</p>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-primary mb-6">Termos de Uso</h3>
+<div class="text-sm text-on-surface-variant leading-relaxed space-y-4 max-h-60 overflow-y-auto pr-4 no-scrollbar">
+<p>A Crédito Brasil atua como correspondente bancário e plataforma de tecnologia. Não somos uma instituição financeira direta, mas sim uma facilitadora de acesso ao crédito.</p>
+<p>A realização da simulação não garante a aprovação do crédito, que é de responsabilidade única e exclusiva da instituição financeira concedente após análise de perfil.</p>
+<p>Nosso serviço é gratuito para o usuário final. Não solicitamos depósitos antecipados para liberação de empréstimo – caso receba este tipo de solicitação, desconfie, é fraude.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 border-t border-slate-200/20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="lg:col-span-2">
+<div class="text-xl font-bold text-blue-900 dark:text-white mb-4">Crédito Brasil</div>
+<p class="text-slate-500 dark:text-slate-400 font-inter text-sm leading-relaxed mb-6">© 2023 Crédito Brasil. <br/>
+                    contato@creditobrasil.com.br | (19) 99605-8578.</p>
+<div class="bg-red-50 text-error p-4 rounded-xl text-xs font-bold inline-block border border-error/10">
+                    Aviso Legal: Não garantimos aprovação de crédito. Todas as solicitações estão sujeitas à análise. Jamais solicitamos valores antecipados para liberar crédito.
+                </div>
+</div>
+<div>
+<h4 class="font-bold text-blue-900 dark:text-blue-400 mb-4">Navegação</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all text-sm" href="#">Políticas de Segurança</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all text-sm" href="#">Crédito Responsável</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all text-sm" href="#">Trabalhe Conosco</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-blue-900 dark:text-blue-400 mb-4">Jurídico</h4>
+<ul class="space-y-2">
+<li><a class="underline text-blue-900 dark:text-blue-400 text-sm" href="#">Política de Privacidade</a></li>
+<li><a class="underline text-blue-900 dark:text-blue-400 text-sm" href="#">Termos de Uso</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all text-sm" href="#">Ouvidoria</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-200/10 text-center">
+<p class="text-[10px] text-slate-400 uppercase tracking-widest">CRÉDITO BRASIL - INTERMEDIAÇÃO DE ATIVOS FINANCEIROS LTDA</p>
+</div>
+</footer>
+<script>
+document.getElementById('btn-processar').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById('input-nome').value;
+    const cpf = document.getElementById('input-cpf').value;
+    const tel = document.getElementById('input-tel').value;
+    const renda = document.getElementById('input-renda').value;
+    const valor = document.getElementById('input-valor').value;
+    const parcelas = document.getElementById('select-parcelas').value;
+
+    if(!nome || !cpf || !tel) {
+        alert('Por favor, preencha os campos obrigatórios (Nome, CPF e Telefone).');
+        return;
+    }
+
+    const message = `Olá, gostaria de fazer uma simulação de empréstimo.\n\nDados do Lead:\nNome: ${nome}\nCPF: ${cpf}\nTelefone: ${tel}\nRenda Mensal: R$ ${renda}\nValor Desejado: R$ ${valor}\nParcelas: ${parcelas}`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/5519996058578?text=${encodedMessage}`;
+    
+    window.location.href = whatsappUrl;
+});
+</script></body></html>
